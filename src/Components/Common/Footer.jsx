@@ -22,7 +22,7 @@ export default function Footer() {
     const fetchProducts = async () => {
       try {
         const res = await axios.post(
-          "http://localhost:4000/api/website/products/view",
+          process.env.PRODUCTS_VIEW_URL,
           {
             is_top_rated: true,
             random: true,
@@ -40,7 +40,7 @@ export default function Footer() {
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/admin/company/view")
+      .post(process.env.COMPANY_INFO_URL)
       .then((res) => {
         if (res.data._status) {
           setCompanyInfo(res.data._data || {});

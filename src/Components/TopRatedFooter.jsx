@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 import { toast } from 'react-toastify';
 
 export default function TopRatedFooter({details}) { 
-    const imageUrl = "http://localhost:4000/uploads/products/"
+    const imageUrl = process.env.PRODUCT_URL
     return (
         <>
             <div className='flex gap-3 pb-4'>

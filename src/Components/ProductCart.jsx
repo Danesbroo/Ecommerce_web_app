@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 
 export default function ProductCart({ product }) {
     const dispatch = useDispatch();
-    const imageUrl = "http://localhost:4000/uploads/products/"
+    const imageUrl = process.env.PRODUCT_URL
     return (
         <>
             <div className="w-full mt-2 mb-2 pb-3">

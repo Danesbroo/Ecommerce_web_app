@@ -16,7 +16,7 @@ export default function ContactUs() {
       subject: e.target.subject.value,
       message: e.target.message.value
     };
-    axios.post("http://localhost:4000/api/website/enquiry/create", formData)
+    axios.post(process.env.ENQUIRY_URL, formData)
       .then((res) => {
         if(res.data._status === true){
           toast.success("Enquiry Sent Successfully!");

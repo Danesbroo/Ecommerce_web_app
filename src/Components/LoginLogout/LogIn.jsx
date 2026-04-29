@@ -22,7 +22,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post("http://localhost:4000/api/website/web-user/login", data)
+    axios.post(process.env.WEBUSER_LOGIN_URL, data)
       .then((res) => {
         if (res.data._status) {
           toast.success(res.data._message);
@@ -40,7 +40,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post("http://localhost:4000/api/website/web-user/register", data)
+    axios.post(process.env.WEBUSER_REGISTER_URL, data)
       .then((res) => {
         if (res.data._status) {
           toast.success(res.data._message);
@@ -58,7 +58,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post("http://localhost:4000/api/website/web-user/forget-password", data)
+    axios.post(process.env.WEBUSER_FORGET_PASSWORD_URL, data)
       .then((res) => {
         toast[res.data._status ? "success" : "error"](res.data._message);
         if (res.data._status) setMode("login");
@@ -73,7 +73,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post("http://localhost:4000/api/website/web-user/reset-password", data, {
+    axios.post(process.env.RESET_PASSWORD_URL, data, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

@@ -9,7 +9,7 @@ export default function Faq() {
 
     useEffect(() => {
     
-        axios.post("http://localhost:4000/api/website/faq/view")
+        axios.post(process.env.FAQ_VIEW_URL)
             .then((res) => {
                 setFreq(res.data._data)
             })

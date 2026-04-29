@@ -12,7 +12,7 @@ export default function ProductDetails() {
   const [upsellProduct, setUpsellProduct] = useState([]);
   const params = useParams();
   const dispatch = useDispatch();
-  const imageUrl = "http://localhost:4000/uploads/products/"
+  const imageUrl = process.env.PRODUCT_URL
 
   useEffect(() => {
     // if we get slug in url return it's details page
@@ -21,7 +21,7 @@ export default function ProductDetails() {
     const fetchDetails = async () => {
       try {
         const res = await axios.post(
-          `http://localhost:4000/api/website/product_details/${params.slug}`
+          `${process.env.UPDATE_PROFILE_URL}/${params.slug}`
         );
 
         if (res.data._status) {
@@ -37,7 +37,7 @@ export default function ProductDetails() {
     fetchDetails();
   }, [params]);
   useEffect(()=>{
-      axios.post('http://localhost:4000/api/website/products/view',{is_up_sell: true})
+      axios.post(process.env.PRODUCTS_VIEW_URL,{is_up_sell: true})
       .then((res)=>{
         setUpsellProduct(res.data._data)
       })

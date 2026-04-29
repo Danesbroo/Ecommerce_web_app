@@ -18,21 +18,21 @@ export default function SidebarFilter() {
   /* ================= Fetch Data ================= */
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/website/nested-category/view")
+      .post(process.env.CATEGORY_VIEW_URL)
       .then((res) => setCategories(res.data._data || []))
       .catch(() => toast.error("Error fetching categories"));
   }, []);
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/website/material/view")
+      .post(process.env.MATERIAL_VIEW_URL)
       .then((res) => setMaterials(res.data._data || []))
       .catch(() => toast.error("Error fetching materials"));
   }, []);
 
   useEffect(() => {
     axios
-      .post("http://localhost:4000/api/website/color/view")
+      .post(process.env.COLOR_VIEW_URL)
       .then((res) => setColors(res.data._data || []))
       .catch(() => toast.error("Error fetching colors"));
   }, []);

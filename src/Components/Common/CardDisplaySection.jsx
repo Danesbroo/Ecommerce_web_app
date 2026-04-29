@@ -10,7 +10,7 @@ import ResponsivePagination from "react-responsive-pagination";
 import "react-responsive-pagination/themes/classic-light-dark.css";
 
 const FEATURE_SLUG_MAP = {
-  "best-selling": "is_best_selling",
+"best-selling": "is_best_selling",                                        
   "top-rated": "is_top_rated",
   "on-sale": "is_on_sell",
   "trending-collection": "is_trending",
@@ -91,9 +91,8 @@ export default function CardDisplaySection() {
 
       try {
         const res = await axios.post(
-          "http://localhost:4000/api/website/products/view", {...pathfilter,  page: currentPage }
+          process.env.PRODUCTS_VIEW_URL, {...pathfilter,  page: currentPage }
         );
-
         setProducts(res.data._data || []);
         (res.data._image_path || "");
         setTotalPages(res.data._pagination?.total_pages || 1);

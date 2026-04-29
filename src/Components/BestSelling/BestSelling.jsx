@@ -19,7 +19,7 @@ export default function BestSelling({ title, categoryId, product }) {
           setItems(product)
         } else{
           const res = await axios.post(
-            "http://localhost:4000/api/website/products/view",
+            process.env.PRODUCTS_VIEW_URL,
             { is_best_selling: true }
           );
           setItems(res.data._data || []);
@@ -31,7 +31,7 @@ export default function BestSelling({ title, categoryId, product }) {
         // CASE 2: If categoryId is provided → Related Products
         if (categoryId) {
           const res = await axios.post(
-            "http://localhost:4000/api/website/products/view",
+            process.env.PRODUCTS_VIEW_URL,
             { sub_category_ids: categoryId }
           );
           setItems(res.data._data || []);

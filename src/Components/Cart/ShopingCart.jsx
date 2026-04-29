@@ -150,7 +150,7 @@ import NoProductFound from "../NoProductFound";
 export default function ShoppingCart() {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartItem.cartItem);
-  const baseUrl = "http://localhost:4000/uploads/products/"
+  const baseUrl = process.env.PRODUCT_URL
   // Total price calculation
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.quantity,
