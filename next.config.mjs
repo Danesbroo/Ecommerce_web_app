@@ -20,6 +20,8 @@ const nextConfig = {
         RESET_PASSWORD_URL: process.env.RESET_PASSWORD_URL,
         WEBUSER_CHANGE_PASSWORD_URL: process.env.WEBUSER_CHANGE_PASSWORD_URL,
         VIEW_PROFILE_URL: process.env.VIEW_PROFILE_URL,
+        UPDATE_PROFILE_URL: process.env.UPDATE_PROFILE_URL,
+        PRODUCT_DETAILS_URL: process.env.PRODUCT_DETAILS_URL,
     },          
 };
 
