@@ -18,7 +18,7 @@ export default function ChangePassword() {
 
         axios
             .post(
-                process.env.WEBUSER_CHANGE_PASSWORD_URL,
+                process.env.NEXT_PUBLIC_WEBUSER_CHANGE_PASSWORD_URL,
                 data,
                 { headers: { Authorization: `Bearer ${userToken}` } }
             )

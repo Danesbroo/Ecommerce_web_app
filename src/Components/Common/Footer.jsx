@@ -22,7 +22,7 @@ export default function Footer() {
     const fetchProducts = async () => {
       try {
         const res = await axios.post(
-          process.env.PRODUCTS_VIEW_URL,
+          process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL,
           {
             is_top_rated: true,
             random: true,
@@ -40,7 +40,7 @@ export default function Footer() {
 
   useEffect(() => {
     axios
-      .post(process.env.COMPANY_INFO_URL)
+      .post(process.env.NEXT_PUBLIC_COMPANY_INFO_URL)
       .then((res) => {
         if (res.data._status) {
           setCompanyInfo(res.data._data || {});

@@ -90,7 +90,7 @@ function CheckoutForm() {
         };
 
         try {
-            const result = await axios.post( process.env.API_URL,
+            const result = await axios.post( process.env.NEXT_PUBLIC_API_URL,
                 {
                     net_amount: finalTotal,
                     productInfo: cartItems.map(item => ({

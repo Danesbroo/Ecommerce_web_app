@@ -9,7 +9,7 @@ export default function Faq() {
 
     useEffect(() => {
     
-        axios.post(process.env.FAQ_VIEW_URL)
+        axios.post(process.env.NEXT_PUBLIC_FAQ_VIEW_URL)
             .then((res) => {
                 setFreq(res.data._data)
             })

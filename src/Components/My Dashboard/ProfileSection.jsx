@@ -27,7 +27,7 @@ export default function ProfileSection({ userProfile }) {
     e.preventDefault();
 
     axios.post(
-      process.env.UPDATE_PROFILE_URL,
+      process.env.NEXT_PUBLIC_UPDATE_PROFILE_URL,
       formData,
       {
         headers: { Authorization: `Bearer ${userToken}` }

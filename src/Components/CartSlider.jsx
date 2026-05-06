@@ -23,7 +23,7 @@ export default function CartSidebar({ isOpen, onClose }) {
     // },
 
   ]);
-  const baseUrl = process.env.PRODUCT_URL
+  const baseUrl = process.env.NEXT_PUBLIC_PRODUCT_URL
 
   // Delete item from cart
   const handleDelete = (id) => {

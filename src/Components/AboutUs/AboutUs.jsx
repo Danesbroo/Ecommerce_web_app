@@ -13,7 +13,7 @@ export default function AboutUs() {
 
     useEffect(() => {  
         
-        axios.post(process.env.WHY_CHOOSE_US_URL)
+        axios.post(process.env.NEXT_PUBLIC_WHY_CHOOSE_US_URL)
             .then((res) => {
                 setWhyChooseProducts(res.data._data || []);
                 setImagePath(res.data._image_path || '');

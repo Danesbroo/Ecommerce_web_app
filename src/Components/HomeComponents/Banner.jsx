@@ -11,7 +11,7 @@ export default function Banner() {
 
 
   useEffect(() => {
-    axios.post(process.env.SLIDER_VIEW_URL)
+    axios.post(process.env.NEXT_PUBLIC_SLIDER_VIEW_URL)
       .then((res) => {
         setItems(res.data._data || [])
         setImageUrl(res.data._image_path || "")

@@ -91,7 +91,7 @@ export default function CardDisplaySection() {
 
       try {
         const res = await axios.post(
-          process.env.PRODUCTS_VIEW_URL, {...pathfilter,  page: currentPage }
+          process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL, {...pathfilter,  page: currentPage }
         );
         setProducts(res.data._data || []);
         (res.data._image_path || "");

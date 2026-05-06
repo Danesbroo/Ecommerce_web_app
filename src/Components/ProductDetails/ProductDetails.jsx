@@ -21,7 +21,7 @@ export default function ProductDetails() {
     const fetchDetails = async () => {
       try {
         const res = await axios.post(
-          `${process.env.PRODUCT_DETAILS_URL}/${params.slug}`
+          `${process.env.NEXT_PUBLIC_PRODUCT_DETAILS_URL}/${params.slug}`
         );
 
         if (res.data._status) {
@@ -37,7 +37,8 @@ export default function ProductDetails() {
     fetchDetails();
   }, [params]);
   useEffect(()=>{
-      axios.post('http://localhost:4000/api/website/products/view',{is_up_sell: true})
+    axios.post(
+      process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL, { is_up_sell: true })
       .then((res)=>{
         setUpsellProduct(res.data._data)
       })

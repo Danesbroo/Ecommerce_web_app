@@ -18,7 +18,7 @@ export default function ButtonSection() {
       else if (type === "onsale") filter.is_on_sell = true;
 
       // api takes time to respond so use async await
-      const res = await axios.post(process.env.PRODUCTS_VIEW_URL,{...filter, limit: 12});
+      const res = await axios.post(process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL,{...filter, limit: 12});
 
       setProducts(res.data._data || []);
     } catch (err) {

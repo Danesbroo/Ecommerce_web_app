@@ -53,7 +53,7 @@ export default function Header() {
   };
 
   useEffect(() => {
-    axios.post(process.env.COMPANY_INFO_URL)
+    axios.post(process.env.NEXT_PUBLIC_COMPANY_INFO_URL)
       .then((res) => {
         if (res.data._status) {
           setCompanyInfo(res.data._data[0]);
@@ -66,7 +66,7 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    axios.post(process.env.CATAGORY_NEATED_VIEW_URL)
+    axios.post(process.env.NEXT_PUBLIC_CATAGORY_NEATED_VIEW_URL)
       .then((response) => {
         setCategories(response.data._data || []);
       })

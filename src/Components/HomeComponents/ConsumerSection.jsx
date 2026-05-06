@@ -13,7 +13,7 @@ export default function ConsumerSection() {
     const [testimonal, setTestimonial] = useState([])
     const [imagePath, setImagePath] = useState("")
     useEffect(() => {
-        axios.post(process.env.TESTIMONIAL_VIEW_URL)
+        axios.post(process.env.NEXT_PUBLIC_TESTIMONIAL_VIEW_URL)
             .then((res) => {
                 setTestimonial(res.data._data);
                 setImagePath(res.data._image_path);
