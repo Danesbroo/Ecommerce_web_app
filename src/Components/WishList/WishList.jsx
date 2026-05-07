@@ -9,7 +9,7 @@ export default function WishList() {
   const dispatch = useDispatch();
   const wislist = useSelector((state) => state.wishlist.wishlist);
 
-  const baseUrl = process.env.NEXT_PUBLIC_PRODUCT_URL
+  const baseUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/uploads/products`
   const discount = 0; // placeholder, change if needed
   return (
     <>

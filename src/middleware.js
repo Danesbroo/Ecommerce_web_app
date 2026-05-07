@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 export function middleware(request) {
     const url = request.nextUrl;  // nextUrl is predefined function to grap 
 
-    // redirect if user logged in or not 
+    // store the token from cookie to check if user is logged in or not
     const isLoggedIn = request.cookies.get("token")?.value;
 
     if (!isLoggedIn && url.pathname.startsWith("/my-dashboard")) { // if user is not logged In but try to open my-dashboard redirect it to login/register page

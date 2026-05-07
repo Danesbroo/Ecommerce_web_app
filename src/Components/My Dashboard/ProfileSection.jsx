@@ -27,7 +27,7 @@ export default function ProfileSection({ userProfile }) {
     e.preventDefault();
 
     axios.post(
-      process.env.NEXT_PUBLIC_UPDATE_PROFILE_URL,
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/update-profile`,
       formData,
       {
         headers: { Authorization: `Bearer ${userToken}` }

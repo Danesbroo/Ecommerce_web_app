@@ -91,7 +91,7 @@ export default function CardDisplaySection() {
 
       try {
         const res = await axios.post(
-          process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL, {...pathfilter,  page: currentPage }
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/website/products/view`, {...pathfilter,  page: currentPage }
         );
         setProducts(res.data._data || []);
         (res.data._image_path || "");
@@ -146,7 +146,6 @@ export default function CardDisplaySection() {
     <div className="px-4 flex flex-col justify-between min-h-[1400px] py-6">
       <div className="grid gap-5 justify-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mx-auto">
         {products.map((product) => (
-          console.log("product", product),
           <div key={product._id} className="w-full max-w-[350px]">
             <ProductCart product={product} />
           </div>

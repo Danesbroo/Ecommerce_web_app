@@ -22,7 +22,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post(process.env.NEXT_PUBLIC_WEBUSER_LOGIN_URL, data)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/login`, data)
       .then((res) => {
         if (res.data._status) {
           toast.success(res.data._message);
@@ -40,7 +40,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post(process.env.NEXT_PUBLIC_WEBUSER_REGISTER_URL, data)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/registor`, data)
       .then((res) => {
         if (res.data._status) {
           toast.success(res.data._message);
@@ -58,7 +58,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post(process.env.NEXT_PUBLIC_WEBUSER_FORGET_PASSWORD_URL, data)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/forget-password`, data)
       .then((res) => {
         toast[res.data._status ? "success" : "error"](res.data._message);
         if (res.data._status) setMode("login");
@@ -73,7 +73,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post(process.env.NEXT_PUBLIC_RESET_PASSWORD_URL, data, {
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/reset-password`, data, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {

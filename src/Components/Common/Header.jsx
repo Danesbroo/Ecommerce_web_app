@@ -53,8 +53,9 @@ export default function Header() {
   };
 
   useEffect(() => {
-    axios.post(process.env.NEXT_PUBLIC_COMPANY_INFO_URL)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/company/view`)
       .then((res) => {
+        console.log(res.data._data);
         if (res.data._status) {
           setCompanyInfo(res.data._data[0]);
           setCompanyLogo(res.data._data[0]?.image);
@@ -66,7 +67,7 @@ export default function Header() {
   }, [])
 
   useEffect(() => {
-    axios.post(process.env.NEXT_PUBLIC_CATAGORY_NEATED_VIEW_URL)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/nested-category/view`)
       .then((response) => {
         setCategories(response.data._data || []);
       })
@@ -132,7 +133,7 @@ export default function Header() {
       <section className="shadow py-4 w-full">
         <div className="flex justify-between items-center px-4 sm:px-8 lg:px-8 max-w-[1440px] mx-auto">
           <div className="basis-[30%] lg:basis-[15%]">
-            <Link href="/" onClick={() => dispatch(resetFilter())}><img src={`${imagePath}/${companyLogo}`} alt="company logo" className="h-15" /></Link>
+            <Link href="/" onClick={() => dispatch(resetFilter())}><img src={`${imagePath}${companyLogo}`} alt="company logo" className="h-15" /></Link>
           </div>
 
           <div className="flex items-center gap-4">

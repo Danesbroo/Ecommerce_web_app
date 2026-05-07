@@ -22,7 +22,7 @@ export default function Footer() {
     const fetchProducts = async () => {
       try {
         const res = await axios.post(
-          process.env.NEXT_PUBLIC_PRODUCTS_VIEW_URL,
+          `${process.env.NEXT_PUBLIC_BASE_URL}/api/website/products/view`,
           {
             is_top_rated: true,
             random: true,

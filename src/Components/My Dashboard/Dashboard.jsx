@@ -18,7 +18,7 @@ export default function Dashboard() {
     
   
     useEffect(() => {
-        axios.post(process.env.NEXT_PUBLIC_VIEW_PROFILE_URL, {}, {
+        axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/view-profile`, {}, {
             headers: {
               'Authorization': `Bearer ${userToken}`
             }
