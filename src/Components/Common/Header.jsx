@@ -55,7 +55,6 @@ export default function Header() {
   useEffect(() => {
     axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/company/view`)
       .then((res) => {
-        console.log(res.data._data);
         if (res.data._status) {
           setCompanyInfo(res.data._data[0]);
           setCompanyLogo(res.data._data[0]?.image);

@@ -39,8 +39,7 @@ export default function Footer() {
   }, []);
 
   useEffect(() => {
-    axios
-      .post(process.env.NEXT_PUBLIC_COMPANY_INFO_URL)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/admin/company/view`)
       .then((res) => {
         if (res.data._status) {
           setCompanyInfo(res.data._data || {});

@@ -12,7 +12,7 @@ export default function ProductDetails() {
   const [upsellProduct, setUpsellProduct] = useState([]);
   const params = useParams();
   const dispatch = useDispatch();
-  const imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/uploads/products`
+  const imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/uploads/products/`
 
   useEffect(() => {
     // if we get slug in url return it's details page
