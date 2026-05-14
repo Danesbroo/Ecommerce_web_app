@@ -26,7 +26,7 @@ export default function AboutUs() {
 
     return (
         <>
-            <div className=' mx-5 sm:mx-5 md:mx-10 lg:mx-15 mt-15'>
+            <div className=' mx-2 sm:mx-5 md:mx-10 lg:mx-15 mt-15'>
                 <div className='text-center text-3xl'>About Us</div>
                 <p className='mb-5 md:mb-10 text-center'> Home <span className='text-[#C09578]'>&gt;</span><span className='text-[#C09578]'>About Us</span></p>
                 <div className='h-0.5 bg-[#EBEBEB] flex-1 my-10 hidden sm:hidden md:hidden lg:block'></div>
@@ -37,12 +37,12 @@ export default function AboutUs() {
                 <p className='text-center py-3'>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam, est usus legentis in iis qui facit eorum claritatem.</p>
                 <p className='text-[#C09578] text-center py-5'><i>“There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.”</i></p>
                 <div className='text-center font-bold text-xl my-15'>Why Choose Us?</div>
-                <div className="flex flex-wrap gap-6 md:gap-8 lg:gap-10 mb-10 justify-center px-4">
+                <div className="flex flex-wrap gap-6 md:gap-8 lg:gap-10 mb-10 justify-center px-2 md:px-4">
                     {/* Card 1 */}
                     {
                         whyChooseProducts.map((v,i)=>{
                             return (
-                            <div className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] p-6 rounded-lg  flex flex-col items-center text-center">
+                            <div className="w-full sm:w-[80%] md:w-[45%] lg:w-[30%] p-2 md:p-5 rounded-lg  flex flex-col items-center text-center">
                                 <div className="text-6xl sm:text-7xl md:text-8xl flex justify-center items-center text-indigo-600">
                                     <img src={imagePath+v.image} alt="" />
                                 </div>

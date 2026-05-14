@@ -18,7 +18,7 @@ export default function SidebarFilter() {
   /* ================= Fetch Data ================= */
   useEffect(() => {
     axios
-      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/category/view`)
+      .post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/nested-category/view`)
       .then((res) => setCategories(res.data._data || []))
       .catch(() => toast.error("Error fetching categories"));
   }, []);
@@ -82,7 +82,7 @@ export default function SidebarFilter() {
         {categories.map((cat) => (
           <div key={cat._id}>
             <div className="font-semibold">{cat.name}</div>
-            {cat.subCategories.map((sub) => {
+            {cat.subCategories?.map((sub) => {
               const checked = searchParams
                 .get("sub")
                 ?.split(",")

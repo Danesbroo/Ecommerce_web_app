@@ -3,7 +3,7 @@ import React from 'react'
 export default function Privacy() {
     return (
         <>
-            <div className='px-20 py-20'>
+            <div className='px-6 md:px-20 py-20'>
                 <div className='text-center font-bold text-3xl'>Privacy Policy</div>
                 <p className='text-center my-5 text-[#212121]'>Home <span className='text-[#C09578]'>&gt;</span><span className='text-[#cba68d]'> Privacy Policy </span></p>
                 <div className='term-Line my-20'></div>

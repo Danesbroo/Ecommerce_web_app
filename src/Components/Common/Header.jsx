@@ -132,7 +132,13 @@ export default function Header() {
       <section className="shadow py-4 w-full">
         <div className="flex justify-between items-center px-4 sm:px-8 lg:px-8 max-w-[1440px] mx-auto">
           <div className="basis-[30%] lg:basis-[15%]">
-            <Link href="/" onClick={() => dispatch(resetFilter())}><img src={`${imagePath}${companyLogo}`} alt="company logo" className="h-15" /></Link>
+            <Link href="/" onClick={() => dispatch(resetFilter())}>{companyLogo && (
+              <img
+                src={`${imagePath}${companyLogo}`}
+                alt="company logo"
+                className="h-8 sm:h-10 md:h-12 lg:h-15 w-auto"
+              />
+            )}</Link>
           </div>
 
           <div className="flex items-center gap-4">
@@ -156,7 +162,7 @@ export default function Header() {
 
 
             <Link href="/wishlist" className="p-1.5 rounded-[5px] wishlist">
-              <IoIosHeart className="wish text-[25px]" />
+              <IoIosHeart className="wish text-[20px]" />
             </Link>
 
             <div className="flex gap-2 cart py-1.5 px-5 items-center cartParent cursor-pointer" onClick={() => setCartOpen(true)}>
@@ -265,74 +271,146 @@ export default function Header() {
 
       {/* ================= Mobile Menu ================= */}
       {mobileOpen && (
-        // <div className="fixed inset-0 bg-black/50 z-50" onClick={() => setMobileOpen(false)}>
-        //   <div
-        //     className="absolute top-0 left-0 w-[75%] sm:w-[60%] h-full bg-white shadow-lg p-6 overflow-y-auto"
-        //     onClick={(e) => e.stopPropagation()}
-        //   >
-        //     <div className="flex justify-between items-center mb-6">
-        //       <Link href="/"><img src="/assets/logo.png" className="h-8" alt="Logo" /></Link>
-        //       <MdClose
-        //         className="text-2xl cursor-pointer hover:text-[#C09578]"
-        //         onClick={() => setMobileOpen(false)}
-        //       />
-        //     </div>
+        <nav className="flex justify-between gap-4 lg:hidden fixed top-0 left-0 h-full w-full bg-white text-black z-50 p-6 ">
+          <div className="flex flex-col">
+            <Link href="/"><img
+              src={`${imagePath}${companyLogo}`}
+              alt="company logo"
+              className="h-8 sm:h-10 md:h-12 lg:h-15 w-auto" />
+            </Link>
 
-        //     <nav className="flex flex-col gap-4">
-        //       <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
-        //       {categories.map((cat, i) => (
-        //         <details key={i}>
-        //           <summary className="cursor-pointer font-semibold text-[#C09578]">{cat.name}</summary>
-        //           <div className="pl-4 pt-2">
-        //             {subCategories.filter(sub => sub.parent_Id._id === cat._id)
-        //               .map((sub, j) => (
-        //                 <p key={j}>
-        //                   <Link href="/product-listing" onClick={() => setMobileOpen(false)}>
-        //                     {sub.name}
+            <Link href="/" onClick={() => dispatch(resetFilter())}  className='text-[#C09578] font-bold text-[14px] cursor-pointer py-5'>HOME</Link>
+
+            {/* LIVING */}
+            <div className='flex items-center cursor-pointer py-5 relative group'>
+              <span className='font-bold text-[14px]'>SHOP</span> <MdKeyboardArrowDown />
+              <div className={`absolute top-full left-0 bg-gray-100 min-h-[300px] shadow-lg z-10 w-[700px] py-10 px-5 gap-3 transition-all duration-300 
+               ${activeMegaMenu === 'living' ? 'flex' : 'hidden group-hover:flex'}`}>
+                {firstCategory.map((cat, i) => (
+                  <div key={i} className='basis-[30%]'>
+                    <div className='font-bold hover:text-[#C09578]'>
+                      <div>{cat.name}</div>
+                    </div>
+                    <div className='pt-[20px]'>
+                      {cat.subCategories?.map((sub, j) => (
+                        <div key={j}>
+                          <p className='pb-2 text-gray-600'>
+                            <Link href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
+                          </p>
+                          {/* we can open this subsubcategory if needed  */}
+
+                          {/* <div className='pl-2'>
+                          {sub.subSubCategories?.map((ss, k) => (
+                            <p key={k} className='pb-1 text-sm text-gray-600 hover:text-[#C09578]'>
+                              <Link href={`/subsubcategory/${ss.slug}`}>{ss.name}</Link>
+                            </p>
+                          ))}
+                        </div>  */}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* sofa  */}
+            <div className='flex items-center cursor-pointer py-5 relative group'>
+              <span className='font-bold text-[14px]'>SOFA</span> <MdKeyboardArrowDown />
+              <div className={`absolute top-full left-0 bg-gray-100 min-h-[300px] shadow-lg z-10 min-w-[700px] py-10 px-5 gap-3 transition-all duration-300 ${activeMegaMenu === 'sofa' ? 'flex' : 'hidden group-hover:flex'}`}>
+                {secondCategory.map((cat, i) => (
+                  <div key={i} className='basis-[30%]'>
+                    <div className='font-bold hover:text-[#C09578]'>
+                      <div>{cat.name}</div>
+                    </div>
+
+                    <div className='pt-[20px]'>
+                      {cat.subCategories?.map((sub, j) => (
+                        <div key={j}>
+                          <p className='pb-2  text-gray-600'>
+                            <Link href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
+                          </p>
+
+                          {/* <div className='pl-2'>
+                          {sub.subSubCategories?.map((ss, k) => (
+                            <p key={k} className='pb-1 text-sm text-gray-600 hover:text-[#C09578]'>
+                              <Link href={`/subsubcategory/${ss.slug}`}>{ss.name}</Link>
+                            </p>
+                          ))}
+                        </div> */}
+
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* PAGES */}
+            <div className='flex items-center cursor-pointer py-5 relative group' onClick={() => toggleMegaMenu('pages')}>
+              <span className='font-bold text-[14px]'>PAGES</span> <MdKeyboardArrowDown />
+              <div className={`absolute top-full left-0 bg-white shadow-lg z-10 w-[200px] py-10 px-5 gap-3 transition-all duration-900 
+                ${activeMegaMenu === 'pages' ? 'flex' : 'hidden group-hover:flex'}`}>
+                <div className='basis-[100%]'>
+                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/cart">Cart</Link></p>
+                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/about-us">About Us</Link></p>
+                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/checkout">Checkout</Link></p>
+                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/faq">Frequently Questions</Link></p>
+                </div>
+              </div>
+            </div>
+
+            <Link href="/contact-us?cate=hello" onClick={() => setMobileOpen(false)} className='font-bold text-[14px] py-5'>CONTACT US</Link>
+
+          </div>
+          <MdClose
+            className="text-2xl cursor-pointer hover:text-[#C09578]"
+            onClick={() => setMobileOpen(false)}
+          />
+        </nav>
+        // <nav className="flex flex-col gap-4 lg:hidden fixed top-0 left-0 h-full w-[60%] bg-white text-black z-50 p-6">
+        //   <div className="flex justify-between items-center mb-6">
+        //     <Link href="/"><img
+        //       src={`${imagePath}${companyLogo}`}
+        //       alt="company logo"
+        //       className="h-8 sm:h-10 md:h-12 lg:h-15 w-auto"/>
+        //     </Link>
+        //     <MdClose
+        //       className="text-2xl cursor-pointer hover:text-[#C09578]"
+        //       onClick={() => setMobileOpen(false)}
+        //     />
+        //   </div>
+        //   <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
+
+        //   {categories.map((cat, i) => (
+        //     <details key={i}>
+        //       <summary className="cursor-pointer font-semibold text-[#C09578]">
+        //         {cat.name}
+        //       </summary>
+        //       <div className="pl-4 pt-2">
+        //         {cat.subCategories?.map((sub, j) => (
+        //           <details key={j}>
+        //             <summary className="cursor-pointer text-sm my-1">{sub.name}</summary>
+
+        //             <div className="pl-4">
+        //               {sub.subSubCategories?.map((ss, k) => (
+        //                 <p key={k}>
+        //                   <Link href={`/subsubcategory/${ss.slug}`} onClick={() => setMobileOpen(false)}>
+        //                     {ss.name}
         //                   </Link>
         //                 </p>
         //               ))}
-        //           </div>
-        //         </details>
-        //       ))}
-        //       <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-        //       <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
-        //     </nav>
-        //   </div>
-        // </div>
-        <nav className="flex flex-col gap-4">
-          <Link href="/" onClick={() => setMobileOpen(false)}>Home</Link>
+        //             </div>
 
-          {categories.map((cat, i) => (
-            <details key={i}>
-              <summary className="cursor-pointer font-semibold text-[#C09578]">
-                {cat.name}
-              </summary>
+        //           </details>
+        //         ))}
+        //       </div>
+        //     </details>
+        //   ))}
 
-              <div className="pl-4 pt-2">
-                {cat.subCategories?.map((sub, j) => (
-                  <details key={j}>
-                    <summary className="cursor-pointer text-sm">{sub.name}</summary>
-
-                    {/* <div className="pl-4">
-                      {sub.subSubCategories?.map((ss, k) => (
-                        <p key={k}>
-                          <Link href={`/subsubcategory/${ss.slug}`} onClick={() => setMobileOpen(false)}>
-                            {ss.name}
-                          </Link>
-                        </p>
-                      ))}
-                    </div> */}
-
-                  </details>
-                ))}
-              </div>
-            </details>
-          ))}
-
-          <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
-          <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
-        </nav>
+        //   <Link href="/contact-us" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+        //   <Link href="/about-us" onClick={() => setMobileOpen(false)}>About Us</Link>
+        // </nav>
 
       )}
 

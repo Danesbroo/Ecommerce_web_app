@@ -31,7 +31,7 @@ export default function ShoppingCart() {
 
       {/* Cart Table or Empty State */}
       {cartItems.length > 0 ? (
-        <div className="p-6 min-h-screen mx-12 space-y-10">
+        <div className="p-2 md:p-6 min-h-screen mx-5 md:mx-12 space-y-10">
           {/* Cart Table */}
           <div className="overflow-x-auto shadow-sm">
             <table className="w-full text-left border-collapse">
@@ -93,15 +93,18 @@ export default function ShoppingCart() {
               <div className="bg-black text-white p-3 font-bold">COUPON</div>
               <div className="p-4 space-y-3">
                 <p>Enter your coupon code if you have one.</p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 w-full">
+
                   <input
                     type="text"
                     placeholder="Coupon code"
-                    className="border px-4 py-2 flex-1 rounded"
+                    className="border px-3 py-2 flex-1 min-w-0 rounded text-sm"
                   />
-                  <button className="bg-black text-white px-4 py-2 rounded hover:bg-[#C19578] transition-all">
+
+                  <button className="bg-black text-white px-2 sm:px-4 py-2 rounded text-[10px] sm:text-sm hover:bg-[#C19578] transition-all">
                     APPLY COUPON
                   </button>
+
                 </div>
               </div>
             </div>

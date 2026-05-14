@@ -32,7 +32,7 @@ export default function ButtonSection() {
   }, [activeTab]);
 
   return (
-    <div className="my-10 mx-5 sm:mx-10">
+    <div className="my-10 mx-5 sm:mx-5">
       {/* Buttons */}
       <div className="flex flex-wrap justify-center gap-3">
         <button

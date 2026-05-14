@@ -40,7 +40,7 @@ export default function Auth() {
     setLoading(true);
     const data = Object.fromEntries(new FormData(e.target).entries());
 
-    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/registor`, data)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/web-user/register`, data)
       .then((res) => {
         if (res.data._status) {
           toast.success(res.data._message);

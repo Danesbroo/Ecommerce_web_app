@@ -8,8 +8,7 @@ export default function ChairCollection() {
 
     return (
         <>
-            <div className='mt-2 flex justify-between flex-wrap px-[15%] sm:px-[12%] md:px-[10%] lg:px-[10%] gap-x-2 gap-y-5'>
-                
+            <div className='w-full mt-2 flex justify-between flex-wrap px-4 sm:px-6 md:px-[8%] lg:px-[10%] gap-x-2 gap-y-5'>                
                 {/* Top Rated Chair */}
                 <div className='basis-[100%] sm:basis-[100%] md:basis-[48%] lg:basis-[30%] relative chairparent'>
                     <Link href="/products/top-rated">

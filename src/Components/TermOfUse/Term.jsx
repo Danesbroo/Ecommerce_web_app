@@ -3,7 +3,7 @@ import React from 'react'
 export default function Term() {
     return (
         <>
-            <div className='px-20 my-10'>
+            <div className='px-8 md:px-20 my-10'>
                 <div className='text-center font-bold text-3xl'>Term of Use</div>
                 <p className='text-center my-5 text-[#212121]'>Home <span className='text-[#C09578]'>&gt;</span><span className='text-[#cba68d]'> Term Of Use </span></p>
                 <div className='term-Line my-20'></div>

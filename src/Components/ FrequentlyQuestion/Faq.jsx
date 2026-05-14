@@ -30,7 +30,7 @@ export default function Faq() {
 
   return (
     <>
-        <div className='mx-5 sm:mx-8 md:mx-15 lg:mx-20'>
+        <div className='mx-5 sm:mx-1 md:mx-15 lg:mx-20'>
             <div className='text-center font-bold text-3xl mt-16'>Frequently Questions</div>
             <p className='text-center my-5'>Home <span className='text-[#C09578]'>&gt;</span> <span className='text-[#C09578]'>Frequent Questions</span></p>
             <div className='h-0.5 bg-[#EBEBEB] flex-1 my-10'></div>
@@ -39,11 +39,11 @@ export default function Faq() {
             {
                 freq.map((v,i)=>{
                     return(
-                        <div className='px-16 my-5' key={i}>
+                        <div className='sm:px-5 md:px-16 my-5' key={i}>
                             <div className='my-4'>
                                 <div className='w-full relative'>
                                     <div className='ps-4 py-4 bg-[#F2F2F2] cursor-pointer rounded-[8px] font-bold text-gray-500' onClick={()=>showHide(i)}>{v.question} </div>
-                                    <span className='absolute top-2 right-4 text-2xl cursor-pointer text-gray-500' onClick={()=>showHide(i)}>{(currentIndex==i)? '-' : '+'}</span>
+                                    <span className='absolute top-2 right-4 text-2xl cursor-pointer text-gray-500 hidden md:block' onClick={()=>showHide(i)}>{(currentIndex==i)? '-' : '+'}</span>
                                 </div>
                                 <div className= {(currentIndex == i)? 'active' :  'hidden'}>
                                     <div className='ps-4 py-5'>{v.answer}</div>

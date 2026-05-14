@@ -89,7 +89,7 @@ function CheckoutForm() {
         };
 
         try {
-            const result = await axios.post(`${NEXT_PUBLIC_BASE_URL}/api/website/orders/order-placed`,
+            const result = await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/orders/order-placed`,
                 {
                     net_amount: finalTotal,
                     productInfo: cartItems.map(item => ({
@@ -112,7 +112,7 @@ function CheckoutForm() {
             }
 
         } catch (error) {
-            toast.error("Server error");
+            toast.error(error.message);
         } finally {
             setLoading(false); // stop loading (IMPORTANT)
         }

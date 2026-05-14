@@ -29,7 +29,7 @@ export default function WishList() {
 
       {/* CONTENT */}
       {wislist.length > 0 ? (
-        <div className="p-6 min-h-screen mx-12">
+        <div className="p-1 md:p-5 min-h-screen mx-1 md:mx-10">
           {/* TABLE WRAPPER */}
           <div className="overflow-x-auto shadow-sm">
             <table className="w-full text-left border-collapse">
