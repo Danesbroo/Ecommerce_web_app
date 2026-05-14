@@ -12,7 +12,7 @@ export default function NewsLetter() {
       email: event.target.email.value
     };
 
-    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/newsletter/view`, formData)
+    axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/website/newsletter/create`, formData)
       .then((res) => {
         if(res.data._status === true){
           toast.success("Subscribed Successfully!");
