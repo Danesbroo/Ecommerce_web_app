@@ -155,7 +155,7 @@ function CheckoutForm() {
     }
     return (
         <>
-            <form onSubmit={placeOrder} className='px-20 py-10'>
+            <form onSubmit={placeOrder} className='px-3 md:px-20 py-10'>
                 <div className='text-center font-bold text-3xl'>CheckOut</div>
                 <p className='text-center my-5 text-[#212121]'>Home <span className='text-[#C09578]'>&gt;</span><span className='text-[#cba68d]'> Check Out</span></p>
                 <div className='h-0.5 bg-[#EBEBEB] flex-1 my-10 hidden sm:hidden md:hidden lg:block'></div>
@@ -251,7 +251,7 @@ function CheckoutForm() {
 
                     </div>
                     <div>
-                        <span onClick={OtherShipping} className=' cursor-pointer bg-black font-bold rounded px-4 py-2 text-white'>Ship To A Different Address</span>
+                        <span onClick={OtherShipping} className=' cursor-pointer bg-black font-bold rounded px-4 py-2 text-white text-[14px] md:text-xl'>Ship To A Different Address</span>
                     </div>
                 </div>
 
