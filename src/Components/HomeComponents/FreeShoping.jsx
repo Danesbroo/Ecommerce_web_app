@@ -3,7 +3,7 @@ import React from 'react'
 export default function FreeShoping() {
   return (
     <>
-      <div className='w-[100%] flex px-40 py-10 bg-[#F8F9F9] flex-wrap items-center justify-between gap-5'>
+      <div className='w-[100%] flex px-8 md:px-40 py-10 bg-[#F8F9F9] flex-wrap items-center justify-between gap-5'>
             <div className='flex flex-col justify-between items-center basis-[100%] sm:basis-[100%] md:basis-[30%] lg:basis-[30%]'>
                 <div className='w-20 h-20 rounded-full border-[2px] flex justify-center items-center'>
                     <img src="#" alt="N/A" />
