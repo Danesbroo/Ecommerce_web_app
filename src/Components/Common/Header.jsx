@@ -295,7 +295,7 @@ export default function Header() {
                       {cat.subCategories?.map((sub, j) => (
                         <div key={j}>
                           <p className='pb-2 text-gray-600'>
-                            <Link href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
+                            <Link onClick={() => setMobileOpen(false)} href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
                           </p>
                           {/* we can open this subsubcategory if needed  */}
 
@@ -327,7 +327,7 @@ export default function Header() {
                       {cat.subCategories?.map((sub, j) => (
                         <div key={j}>
                           <p className='pb-2  text-gray-600'>
-                            <Link href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
+                            <Link onClick={() => setMobileOpen(false)} href={`/products/${cat.slug}/${sub.slug}`}>{sub.name}</Link>
                           </p>
 
                           {/* <div className='pl-2'>
