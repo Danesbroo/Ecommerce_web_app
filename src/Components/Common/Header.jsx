@@ -142,7 +142,7 @@ export default function Header() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="hidden lg:flex searchParent">
+            <div className="hidden sm:flex searchParent">
               <input
                 className="h-10 search ps-2"
                 type="text"
@@ -180,7 +180,23 @@ export default function Header() {
         </div>
         <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} />
       </section>
+      <div className="block sm:hidden w-full items-center relative">
+        <input
+          className="h-6 w-full ps-2"
+          type="text"
+          placeholder="Search products..."
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleSearch();
+          }}
+        />
 
+        <CiSearch
+          className="absolute right-2 top-1 cursor-pointer hover:text-[#C09578]"
+          onClick={handleSearch}
+        />
+      </div>
       {/* Desktop Navigation */}
       <nav className={`hidden lg:block ${isSticky ? 'fixed top-0 left-0 w-full z-50 shadow bg-white' : 'relative shadow'}`}>
         <div className="flex justify-center gap-20 items-center px-8 py-2">
@@ -279,12 +295,12 @@ export default function Header() {
               className="h-8 sm:h-10 md:h-12 lg:h-15 w-auto" />
             </Link>
 
-            <Link href="/" onClick={() => dispatch(resetFilter())}  className='text-[#C09578] font-bold text-[14px] cursor-pointer py-5'>HOME</Link>
+            <Link href="/" onClick={() => dispatch(resetFilter())} className='text-[#C09578] font-bold text-[14px] cursor-pointer py-5'>HOME</Link>
 
             {/* LIVING */}
             <div className='flex items-center cursor-pointer py-5 relative group'>
               <span className='font-bold text-[14px]'>SHOP</span> <MdKeyboardArrowDown />
-              <div className={`absolute top-full left-0 bg-gray-100 min-h-[300px] shadow-lg z-10 w-[700px] py-10 px-5 gap-3 transition-all duration-300 
+              <div className={`absolute top-full left-0 bg-gray-100 min-h-[200px] shadow-lg z-10 w-[500px] py-10 px-2 gap-2 transition-all duration-300 
                ${activeMegaMenu === 'living' ? 'flex' : 'hidden group-hover:flex'}`}>
                 {firstCategory.map((cat, i) => (
                   <div key={i} className='basis-[30%]'>
@@ -295,7 +311,7 @@ export default function Header() {
                       {cat.subCategories?.map((sub, j) => (
                         <div key={j}>
                           <p className='pb-2 text-gray-600'>
-                            <Link onClick={() => setMobileOpen(false)} href={`/products/${cat.slug}/${sub.slug}`}>{sub.name} onClick={() => setMobileOpen(false)}</Link>
+                            <Link onClick={() => setMobileOpen(false)} href={`/products/${cat.slug}/${sub.slug}`}>{sub.name}</Link>
                           </p>
                           {/* we can open this subsubcategory if needed  */}
 
@@ -352,10 +368,10 @@ export default function Header() {
               <div className={`absolute top-full left-0 bg-white shadow-lg z-10 w-[200px] py-10 px-5 gap-3 transition-all duration-900 
                 ${activeMegaMenu === 'pages' ? 'flex' : 'hidden group-hover:flex'}`}>
                 <div className='basis-[100%]'>
-                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/cart">Cart</Link></p>
-                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/about-us">About Us</Link></p>
-                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/checkout">Checkout</Link></p>
-                  <p className='pb-2'onClick={() => setMobileOpen(false)}><Link href="/faq">Frequently Questions</Link></p>
+                  <p className='pb-2' onClick={() => setMobileOpen(false)}><Link href="/cart">Cart</Link></p>
+                  <p className='pb-2' onClick={() => setMobileOpen(false)}><Link href="/about-us">About Us</Link></p>
+                  <p className='pb-2' onClick={() => setMobileOpen(false)}><Link href="/checkout">Checkout</Link></p>
+                  <p className='pb-2' onClick={() => setMobileOpen(false)}><Link href="/faq">Frequently Questions</Link></p>
                 </div>
               </div>
             </div>
