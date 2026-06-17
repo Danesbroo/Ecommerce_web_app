@@ -1,5 +1,5 @@
 "use client";
-import React, { use, useEffect } from 'react'
+import React, { use, useEffect, useState } from 'react'
 import { FaAddressCard } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
@@ -7,6 +7,22 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 export default function ContactUs() {
 
+  const [contactDetails, setContactDetails] = useState("")
+
+  useEffect(() => {
+    axios
+      .post("http://localhost:4000/api/admin/company/view")
+      .then((res) => {
+        if (res.data._status) {
+          setContactDetails(res.data._data || {});
+        } else {
+          toast.error(res.data._message || "Error fetching company info");
+        }
+      })
+      .catch((error) => {
+        toast.error("Error fetching company info");
+      });
+  }, []);  
   const enquiry = (e) => {
     e.preventDefault();
     const formData = {
@@ -51,11 +67,11 @@ export default function ContactUs() {
           <div className='basis-[100%] sm:basis-[100%] md:basis-[100%] lg:basis-[48%]'>
             <div className='font-bold text-xl my-5'>Contact Us</div>
             <div className='h-0.5 bg-[#EBEBEB] flex-1 my-5'></div>
-            <div className='flex items-center gap-2'> <span><FaAddressCard /></span>Address:Claritas est etiam processus dynamicus</div>
+            <div className='flex items-center gap-2'> <span><FaAddressCard /></span>Address:{contactDetails?.[0]?.address}</div>
             <div className='h-0.5 bg-[#EBEBEB] flex-1 my-5'></div>
-            <div className='flex items-center gap-2'><span><FaPhoneAlt /></span>: 98745612330</div>
+            <div className='flex items-center gap-2'><span><FaPhoneAlt /></span>: {contactDetails?.[0]?.mobile_number}</div>
             <div className='h-0.5 bg-[#EBEBEB] flex-1 my-5'></div>
-            <div className='flex items-center gap-2'><span className='pe-2'><CiMail /></span>: furnitureinfo@gmail.com</div>
+            <div className='flex items-center gap-2'><span className='pe-2'><CiMail /></span>: {contactDetails?.[0]?.email}</div>
           </div>
           <form onSubmit={enquiry} className='basis-[100%] sm:basis-[100%] md:basis-[100%] lg:basis-[48%]'>
             <div className='text-xl font-bold my-5'>Tell us your question</div>
